@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
-    android:padding="16dp"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,9 +16,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Stock Name"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,8 +27,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         tools:text="LTP: ₹ 1250.50"
-        android:textColor="?colorSecondary"
-        android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/holdingName" />
@@ -39,8 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         app:layout_constraintBottom_toBottomOf="@id/holdingName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/holdingName"
@@ -52,8 +49,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         tools:text="Qty: 10"
-        android:textColor="?colorSecondary"
-        android:textSize="14sp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/ltpValue"
         app:layout_constraintBottom_toBottomOf="@id/ltpValue" />
@@ -62,7 +58,7 @@
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="?android:attr/dividerVertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

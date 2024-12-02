@@ -4,10 +4,14 @@ import android.app.Activity
 import androidx.fragment.app.Fragment
 import com.example.screener.AppContainer
 import com.example.screener.MainApplication
+import com.example.screener.feature.portfolio.PortfolioContainer
 
-val Fragment.container: AppContainer
-    get() = requireActivity().container
+val Fragment.appContainer: AppContainer
+    get() = requireActivity().appContainer
 
-val Activity.container: AppContainer
+val Activity.appContainer: AppContainer
     get() =
         (application as MainApplication).appContainer
+
+val Fragment.portfolioContainer : PortfolioContainer
+    get() = appContainer.portfolioContainer

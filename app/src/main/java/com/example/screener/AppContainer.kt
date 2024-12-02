@@ -1,6 +1,7 @@
 package com.example.screener
 
 import com.example.screener.constants.MainUrls
+import com.example.screener.feature.portfolio.PortfolioContainer
 import com.example.screener.feature.portfolio.data.PortfolioApi
 import com.example.screener.feature.portfolio.data.PortfolioRepo
 import kotlinx.serialization.json.Json
@@ -19,5 +20,7 @@ class AppContainer {
             .build()
             .create(PortfolioApi::class.java)
     }
-    val portfolioRepo by lazy { PortfolioRepo(remoteDataSource = portfolioApi) }
+    private val portfolioRepo by lazy { PortfolioRepo(remoteDataSource = portfolioApi) }
+
+    val portfolioContainer get() = PortfolioContainer(portfolioRepo)
 }

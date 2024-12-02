@@ -6,17 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.screener.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.screener.databinding.FragmentPortfolioBinding
-import com.example.screener.extension.container
+import com.example.screener.extension.portfolioContainer
 
 class PortfolioFragment : Fragment() {
 
     private val viewModel by viewModels<PortfolioVewModel> {
-        PortfolioVewModel.factory(container.portfolioRepo)
+        PortfolioVewModel.factory(portfolioContainer.getPortfolioUseCase)
     }
 
     private val binding by lazy { FragmentPortfolioBinding.inflate(layoutInflater) }
+    private val adapter by lazy { HoldingsAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,8 +29,10 @@ class PortfolioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.portfolioHoldings.adapter = adapter
+        binding.portfolioHoldings.layoutManager = LinearLayoutManager(requireContext())
         viewModel.holdingsList.observe(viewLifecycleOwner) { holdingsList ->
-            // Update UI
+            adapter.submitList(holdingsList)
         }
     }
 }
