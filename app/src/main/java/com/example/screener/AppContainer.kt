@@ -2,8 +2,10 @@ package com.example.screener
 
 import com.example.screener.constants.MainUrls
 import com.example.screener.feature.portfolio.PortfolioContainer
-import com.example.screener.feature.portfolio.data.PortfolioApi
-import com.example.screener.feature.portfolio.data.PortfolioRepo
+import com.example.screener.feature.portfolio.data.HoldingRepo
+import com.example.screener.feature.portfolio.data.HoldingRepoImpl
+import com.example.screener.feature.portfolio.data.PortfolioCache
+import com.example.screener.feature.portfolio.data.PortfolioDataSource
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
@@ -18,9 +20,14 @@ class AppContainer {
             .baseUrl(MainUrls.PORTFOLIO)
             .addConverterFactory(Json.asConverterFactory(MediaType.get("application/json")))
             .build()
-            .create(PortfolioApi::class.java)
+            .create(PortfolioDataSource::class.java)
     }
-    private val portfolioRepo by lazy { PortfolioRepo(remoteDataSource = portfolioApi) }
-
-    val portfolioContainer get() = PortfolioContainer(portfolioRepo)
+    private val portfolioCache: PortfolioCache by lazy { PortfolioCache() }
+    private val holdingRepo: HoldingRepo by lazy {
+        HoldingRepoImpl(
+            remoteDataSource = portfolioApi,
+            cacheDataSource = portfolioCache
+        )
+    }
+    val portfolioContainer get() = PortfolioContainer(holdingRepo)
 }

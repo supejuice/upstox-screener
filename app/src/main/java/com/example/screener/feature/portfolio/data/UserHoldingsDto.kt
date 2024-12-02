@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PortfolioResponse(
+data class UserHoldingsDto(
     @SerialName("data")
     val data: Data
 ) {

@@ -13,11 +13,15 @@ import com.example.screener.extension.portfolioContainer
 class PortfolioFragment : Fragment() {
 
     private val viewModel by viewModels<PortfolioVewModel> {
-        PortfolioVewModel.factory(portfolioContainer.getPortfolioUseCase)
+        PortfolioVewModel.factory(
+            portfolioContainer.getPortfolioUseCase,
+            portfolioContainer.getPortfolioStatsUseCase
+        )
     }
 
     private val binding by lazy { FragmentPortfolioBinding.inflate(layoutInflater) }
     private val adapter by lazy { HoldingsAdapter() }
+    private val statsAdapter by lazy { PortfolioStatsAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,10 +33,16 @@ class PortfolioFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.portfolioHoldings.adapter = adapter
-        binding.portfolioHoldings.layoutManager = LinearLayoutManager(requireContext())
+        binding.statsCarousel.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.statsCarousel.adapter = statsAdapter
+        binding.holdingsList.adapter = adapter
+        binding.holdingsList.layoutManager = LinearLayoutManager(requireContext())
         viewModel.holdingsList.observe(viewLifecycleOwner) { holdingsList ->
             adapter.submitList(holdingsList)
+        }
+        viewModel.statsList.observe(viewLifecycleOwner) {
+            statsAdapter.submitList(it)
         }
     }
 }

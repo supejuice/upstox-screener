@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/card_background"
+        android:backgroundTint="?colorSecondaryContainer"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/statsIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="icon for the stats"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/statsTitle"
+            app:srcCompat="@drawable/round_savings_24"
+            app:tint="?colorSecondary"
+            tools:ignore="HardcodedText"
+            tools:srcCompat="@drawable/round_savings_24" />
+
+        <TextView
+            android:id="@+id/statsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="top"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintStart_toEndOf="@id/statsIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Total investment" />
+
+        <TextView
+            android:id="@+id/statsValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            app:layout_constraintStart_toEndOf="@id/statsIcon"
+            app:layout_constraintTop_toBottomOf="@id/statsTitle"
+            tools:text="Total investment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+
+

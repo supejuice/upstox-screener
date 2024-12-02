@@ -4,4 +4,9 @@
     <string name="portfolio">Portfolio</string>
     <string name="greeting">Welcome to Upstox</string>
     <string name = "qty">Qty : </string>
+    <string name="current_value">Current\nValue</string>
+    <string name="total_inv">Total\nInv</string>
+    <string name="today_profit_loss">Today\'s Profit &amp;\nLoss</string>
+    <string name="profit_loss">Profit &amp;\nLoss</string>
+
 </resources>

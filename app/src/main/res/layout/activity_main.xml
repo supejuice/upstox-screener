@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:id="@+id/mainBottomNav"
         app:menu="@menu/bottom_navigation"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         android:layout_gravity="bottom"
         android:layout_height="wrap_content"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
