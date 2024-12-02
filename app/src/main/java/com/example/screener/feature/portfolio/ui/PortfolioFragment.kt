@@ -46,6 +46,8 @@ class PortfolioFragment : Fragment() {
         }
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+            binding.holdingsTitle.visibility = if (isLoading) View.GONE else View.VISIBLE
+            binding.greeting.visibility = if (isLoading) View.GONE else View.VISIBLE
         }
     }
 }
