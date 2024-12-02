@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/statsTitle"
             app:srcCompat="@drawable/round_savings_24"
-            app:tint="?colorSecondary"
+            app:tint="?colorPrimary"
             tools:ignore="HardcodedText"
             tools:srcCompat="@drawable/round_savings_24" />
 

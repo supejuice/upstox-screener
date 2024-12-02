@@ -2,11 +2,12 @@
     <string name="app_name">Upstox Screener</string>
     <string name="home">Home</string>
     <string name="portfolio">Portfolio</string>
-    <string name="greeting">Welcome to Upstox</string>
-    <string name = "qty">Qty : </string>
+    <string name="greeting">Today\'s \nInsights</string>
+    <string name="qty">QTY:\t</string>
+    <string name="pnl">P&amp;L:\t</string>
     <string name="current_value">Current\nValue</string>
-    <string name="total_inv">Total\nInv</string>
+    <string name="total_inv">Total\nInvestment</string>
     <string name="today_profit_loss">Today\'s Profit &amp;\nLoss</string>
     <string name="profit_loss">Profit &amp;\nLoss</string>
-
+    <string name="holdings">Holdings</string>
 </resources>

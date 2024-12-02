@@ -16,7 +16,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Stock Name"
-        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="?android:attr/dividerVertical"
+        android:background="?colorPrimaryContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/quantityValue" />

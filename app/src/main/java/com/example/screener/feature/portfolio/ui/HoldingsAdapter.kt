@@ -40,14 +40,17 @@ class HoldingsAdapter :
                 append(" ")
                 append(holding.price)
             }
-            binding.profitOrLossValue.text = holding.profitAndLoss
+            binding.profitOrLossValue.text = buildString {
+                append(binding.root.context.getString(R.string.pnl))
+                append(holding.profitAndLoss)
+            }
             if (holding.isProfit) {
                 binding.profitOrLossValue.setTextColor(
-                    binding.root.context.getColor(android.R.color.holo_green_dark)
+                    binding.root.context.getColor(R.color.priceGreen)
                 )
             } else {
                 binding.profitOrLossValue.setTextColor(
-                    binding.root.context.getColor(android.R.color.holo_red_dark)
+                    binding.root.context.getColor(R.color.priceRed)
                 )
             }
         }

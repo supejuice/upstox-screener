@@ -44,5 +44,8 @@ class PortfolioFragment : Fragment() {
         viewModel.statsList.observe(viewLifecycleOwner) {
             statsAdapter.submitList(it)
         }
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
     }
 }

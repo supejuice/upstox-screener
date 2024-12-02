@@ -23,10 +23,15 @@ class PortfolioVewModel(
     private val _statsList = MutableLiveData<List<PortfolioStat>>()
     val statsList: LiveData<List<PortfolioStat>> = _statsList
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     init {
         viewModelScope.launch {
+            _isLoading.value = true
             _holdingsList.value = getHoldingsUseCase.invoke()
             _statsList.value = getPortfolioStatsUseCase.invoke()
+            _isLoading.value = false
         }
     }
 

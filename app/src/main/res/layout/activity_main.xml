@@ -7,20 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:text="@string/greeting"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
-            />
-    </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"
@@ -31,6 +17,8 @@
         android:layout_width="match_parent"
         android:id="@+id/mainBottomNav"
         app:menu="@menu/bottom_navigation"
+        app:itemIconTint="?colorSecondary"
+        app:itemTextColor="?colorSecondary"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         android:layout_gravity="bottom"
         android:layout_height="wrap_content"/>
